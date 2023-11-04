@@ -28,6 +28,24 @@ public class BoardTest {
     assertThat(nextBoard).isEqualTo(expected);
   }
 
+  @Test
+  public void keepsCellsAliveIfHaveTwoNeighbours() {
+    Board board = Board.create(List.of(
+        List.of(Cell.dead(),Cell.alive(),Cell.alive()),
+        List.of(Cell.dead(),Cell.alive(),Cell.alive()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead())
+    ));
+
+    Board nextBoard = board.nextGeneration();
+
+    Board expected = Board.create(List.of(
+        List.of(Cell.dead(),Cell.alive(),Cell.alive()),
+        List.of(Cell.dead(),Cell.alive(),Cell.alive()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead())
+    ));
+    assertThat(nextBoard).isEqualTo(expected);
+  }
+
   @Nested
   class CanCompare {
 
