@@ -2,8 +2,15 @@ package org.example;
 
 public class Game {
 
+  private final String boardRepresentation;
+
+  public Game(final String boardRepresentation) {
+
+    this.boardRepresentation = boardRepresentation;
+  }
+
   public static Game from(final String boardRepresentation) {
-    return new Game();
+    return new Game(boardRepresentation);
   }
 
   public void nextGeneration() {
@@ -12,8 +19,6 @@ public class Game {
 
   @Override
   public String toString() {
-    return "---\n" +
-            "---\n" +
-            "---";
+    return boardRepresentation;
   }
 }
