@@ -5,27 +5,33 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 public class BoardTest {
-  @Test
-  public void canCompareTwoEqualBoards() {
-    Board board1 = Board.create(List.of(List.of(Cell.dead())));
-    Board board2 = Board.create(List.of(List.of(Cell.dead())));
+  @Nested
+  class CanCompare {
 
-    boolean areEquals = board1.equals(board2);
+    @Test
+    public void twoEqualBoards() {
+      Board board1 = Board.create(List.of(List.of(Cell.dead())));
+      Board board2 = Board.create(List.of(List.of(Cell.dead())));
 
-    assertTrue(areEquals);
-  }
+      boolean areEquals = board1.equals(board2);
 
-  @Test
-  public void canCompareTwoDifferentBoards() {
-    Board board1 = Board.create(List.of(List.of(Cell.dead())));
-    Board board2 = Board.create(List.of(List.of(Cell.alive())));
+      assertTrue(areEquals);
+    }
 
-    boolean areEquals = board1.equals(board2);
+    @Test
+    public void twoDifferentBoards() {
+      Board board1 = Board.create(List.of(List.of(Cell.dead())));
+      Board board2 = Board.create(List.of(List.of(Cell.alive())));
 
-    assertFalse(areEquals);
+      boolean areEquals = board1.equals(board2);
+
+      assertFalse(areEquals);
+    }
+
   }
 
 
