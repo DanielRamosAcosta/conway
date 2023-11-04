@@ -1,5 +1,6 @@
 package org.example;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -9,6 +10,24 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 public class BoardTest {
+  @Test
+  public void killALonelyCell() {
+    Board board = Board.create(List.of(
+        List.of(Cell.dead(),Cell.dead(),Cell.dead()),
+        List.of(Cell.dead(),Cell.alive(),Cell.dead()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead())
+    ));
+
+    Board nextBoard = board.nextGeneration();
+
+    Board expected = Board.create(List.of(
+        List.of(Cell.dead(),Cell.dead(),Cell.dead()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead())
+    ));
+    assertThat(nextBoard).isEqualTo(expected);
+  }
+
   @Nested
   class CanCompare {
 
@@ -33,8 +52,4 @@ public class BoardTest {
     }
 
   }
-
-
-
-
 }
