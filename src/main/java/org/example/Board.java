@@ -15,7 +15,17 @@ public class Board {
     return new Board(cells);
   }
 
+
+
   public Board nextGeneration() {
+    /*for (List<Cell> row: cells) {
+      for (Cell cell: row) {
+        Integer x = row.indexOf(cell);
+        Integer y = cells.indexOf(row);
+        final List<Cell> neighbors = board.getNeighborsOf(x, y);
+        cell.nextGeneration(neighbors);
+      }
+    }*/
     return Board.create(List.of(
         List.of(Cell.dead(),Cell.dead(),Cell.dead()),
         List.of(Cell.dead(),Cell.dead(),Cell.dead()),

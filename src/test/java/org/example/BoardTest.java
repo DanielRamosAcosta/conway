@@ -28,7 +28,6 @@ public class BoardTest {
     assertThat(nextBoard).isEqualTo(expected);
   }
 
-  @Test
   public void keepsCellsAliveIfHaveTwoNeighbours() {
     Board board = Board.create(List.of(
         List.of(Cell.dead(),Cell.alive(),Cell.alive()),
@@ -44,6 +43,19 @@ public class BoardTest {
         List.of(Cell.dead(),Cell.dead(),Cell.dead())
     ));
     assertThat(nextBoard).isEqualTo(expected);
+  }
+
+  @Test
+  public void getsTheNeighborsOfAPosition() {
+    Board board = Board.create(List.of(
+        List.of(Cell.dead(),Cell.alive(),Cell.alive()),
+        List.of(Cell.dead(),Cell.alive(),Cell.alive()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead())
+    ));
+
+    int aliveNeighbors = board.amountOfAliveNeighbors(1, 1);
+
+    assertThat(aliveNeighbors).isEqualTo(3);
   }
 
   @Nested
