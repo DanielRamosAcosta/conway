@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class BoardTest {
   @Test
-  public void keeps_all_cells_dead() {
+  public void canCompareTwoEqualBoards() {
     Board board1 = Board.create(List.of(List.of(Cell.dead())));
     Board board2 = Board.create(List.of(List.of(Cell.dead())));
 
@@ -16,4 +16,6 @@ public class BoardTest {
 
     assertTrue(areEquals);
   }
+
+
 }
