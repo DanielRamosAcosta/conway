@@ -21,4 +21,20 @@ public class GameTest {
       ---
       ---""");
   }
+
+  @Test
+  void no_changes_if_in_equilibrium() {
+    Game game = Game.from("""
+            -**
+            --*
+            ---""");
+
+    game.nextGeneration();
+
+    final String string = game.toString();
+    assertThat(string).isEqualTo("""
+      -**
+      --*
+      ---""");
+  }
 }
