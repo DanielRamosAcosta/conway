@@ -1,5 +1,6 @@
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
@@ -16,6 +17,18 @@ public class BoardTest {
 
     assertTrue(areEquals);
   }
+
+  @Test
+  public void canCompareTwoDifferentBoards() {
+    Board board1 = Board.create(List.of(List.of(Cell.dead())));
+    Board board2 = Board.create(List.of(List.of(Cell.alive())));
+
+    boolean areEquals = board1.equals(board2);
+
+    assertFalse(areEquals);
+  }
+
+
 
 
 }
