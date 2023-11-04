@@ -58,6 +58,19 @@ public class BoardTest {
     assertThat(aliveNeighbors).isEqualTo(3);
   }
 
+  @Test
+  public void getsTheNeighborsOfPositionInSameRow() {
+    Board board = Board.create(List.of(
+        List.of(Cell.dead(),Cell.dead(),Cell.dead()),
+        List.of(Cell.alive(),Cell.alive(),Cell.alive()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead())
+    ));
+
+    int aliveNeighbors = board.amountOfAliveNeighbors(1, 1);
+
+    assertThat(aliveNeighbors).isEqualTo(2);
+  }
+
   @Nested
   class CanCompare {
 
