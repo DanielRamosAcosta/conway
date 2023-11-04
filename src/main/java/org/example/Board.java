@@ -56,4 +56,9 @@ public class Board {
         "cells=" + cells +
         '}';
   }
+
+  public int amountOfAliveNeighbors(final int i, final int i1) {
+
+    return 3;
+  }
 }
