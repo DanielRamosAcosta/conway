@@ -12,9 +12,7 @@ public class Game {
   }
 
   public static Game from(final String boardRepresentation) {
-    GameSerializer parser = new GameSerializer();
-    List<List<Cell>> cells = parser.from(boardRepresentation);
-    return new Game(cells);
+    return new GameExecutor(boardRepresentation).invoke(boardRepresentation);
   }
 
   public void nextGeneration() {
@@ -23,7 +21,11 @@ public class Game {
 
   @Override
   public String toString() {
-    GameSerializer parser = new GameSerializer();
+    ConsoleGameSerializer parser = new ConsoleGameSerializer();
     return parser.toRepresentation(cells);
+  }
+
+  public String serializeWith(final GameSerializer serializer) {
+    return null;
   }
 }

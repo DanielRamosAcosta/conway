@@ -5,13 +5,12 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-class GameSerializerTest {
+class ConsoleGameSerializerTest {
     @Test
     void empty_representation_returns_no_cells() {
 
-        GameSerializer serializer = new GameSerializer();
+        ConsoleGameSerializer serializer = new ConsoleGameSerializer();
 
         List<List<Cell>> cells = serializer.from("");
 
