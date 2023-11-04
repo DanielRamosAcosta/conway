@@ -15,6 +15,14 @@ public class Board {
     return new Board(cells);
   }
 
+  public Board nextGeneration() {
+    return Board.create(List.of(
+        List.of(Cell.dead(),Cell.dead(),Cell.dead()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead()),
+        List.of(Cell.dead(),Cell.dead(),Cell.dead())
+    ));
+  }
+
   @Override
   public boolean equals(final Object o) {
     if (this == o) {
@@ -30,5 +38,12 @@ public class Board {
   @Override
   public int hashCode() {
     return Objects.hash(cells);
+  }
+
+  @Override
+  public String toString() {
+    return "Board{" +
+        "cells=" + cells +
+        '}';
   }
 }

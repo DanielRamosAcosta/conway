@@ -34,4 +34,11 @@ public class Cell {
   public int hashCode() {
     return Objects.hash(alive);
   }
+
+  @Override
+  public String toString() {
+    return "Cell{" +
+        "alive=" + alive +
+        '}';
+  }
 }
