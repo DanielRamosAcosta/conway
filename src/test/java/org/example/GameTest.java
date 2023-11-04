@@ -37,4 +37,19 @@ public class GameTest {
       --*
       ---""");
   }
+  @Test
+  void lonely_cell_dies() {
+    Game game = Game.from("""
+            ---
+            -*-
+            ---""");
+
+    game.nextGeneration();
+
+    final String string = game.toString();
+    assertThat(string).isEqualTo("""
+      ---
+      ---
+      ---""");
+  }
 }
