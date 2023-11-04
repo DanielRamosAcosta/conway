@@ -59,6 +59,8 @@ public class Board {
 
   public int amountOfAliveNeighbors(final int i, final int i1) {
 
-    return 3;
+    for (int x = -1; x<= 1; x++) {
+      if (x == 1);
+    }
   }
 }
