@@ -1,24 +1,29 @@
 package org.example;
 
+import java.util.List;
+
 public class Game {
 
-  private final String boardRepresentation;
+  private final List<List<Cell>> cells;
 
-  public Game(final String boardRepresentation) {
+  public Game(final List<List<Cell>> cells) {
 
-    this.boardRepresentation = boardRepresentation;
+    this.cells = cells;
   }
 
   public static Game from(final String boardRepresentation) {
-    return new Game(boardRepresentation);
+    GameSerializer parser = new GameSerializer();
+    List<List<Cell>> cells = parser.from(boardRepresentation);
+    return new Game(cells);
   }
 
   public void nextGeneration() {
-
+    throw new RuntimeException("Unimplemented method Game#nextGeneration");
   }
 
   @Override
   public String toString() {
-    return boardRepresentation;
+    GameSerializer parser = new GameSerializer();
+    return parser.toRepresentation(cells);
   }
 }
